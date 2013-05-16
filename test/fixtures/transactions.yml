@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  status: false
+  item_id: 1
+  employee_id: 1
+
+two:
+  status: false
+  item_id: 1
+  employee_id: 1

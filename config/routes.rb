@@ -1,5 +1,8 @@
 Tooler::Application.routes.draw do
 
+  resources :transactions
+
+
   resources :employees
 
 
