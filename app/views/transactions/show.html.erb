@@ -6,13 +6,18 @@
 </p>
 
 <p>
-  <b>Item:</b>
+  <b>Item </b>
   <%= @transaction.item_id %>
 </p>
 
+<p>                                                                             
+  <b>Item </b>                                                                  
+  <%= @transaction.description %>                                                   
+</p>
+
 <p>
-  <b>Employee ID</b>
-  <%= @transaction.employee_id %>
+  <b>Employee</b>
+  <%= @transaction.name %>
   </p>
 
 <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
