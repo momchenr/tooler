@@ -9,6 +9,7 @@ Tooler::Application.routes.draw do
   resources :items
 
   match 'twilio/process_sms' => 'twilio#process_sms'
+  match 'twilio/create' => 'twilio#create'
 
   devise_for :users
 
