@@ -53,6 +53,11 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def twilio_create
+    @transaction = Transaction.new(:item_id => params[:Body], :employee_id => params[:From])
+    @transaction.save
+  end
+
   # PUT /transactions/1
   # PUT /transactions/1.json
   def update
