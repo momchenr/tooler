@@ -10,7 +10,7 @@ class TwilioController < ApplicationController
     phone_number = params[:From][/\d+/]
     employee = Employee.where(phone: phone_number).first
     if employee
-      transaction = Transaction.new(:item => [:Body], :employee => employee, :status => true)
+      transaction = Transaction.new(:item => [:Body], :employee => 1, :status => true)
       @transaction.save
     end
   end
