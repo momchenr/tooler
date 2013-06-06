@@ -7,7 +7,7 @@ class TwilioController < ApplicationController
     end
   
   def create
-    @transaction = Transaction.new(:item => [:Body].to_i, :employee => 1, :status => true)
+    @transaction = Transaction.new(:item_id => 1, :employee_id => 1, :status => true)
     @transaction.save
   end
 
