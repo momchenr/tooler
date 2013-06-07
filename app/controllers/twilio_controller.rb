@@ -7,14 +7,14 @@ class TwilioController < ApplicationController
   end
 
   def create
-    phone_number = params[:From][/\d+/].to_s
+    phone_number = params[:From][/\d+/i].to_s
     item_asset = params[:Body].split.last
 
-    if params[:Body][/^ci/]
+    if params[:Body][/^ci/i]
       item_status = true
     end
 
-    if params[:Body][/^co/]
+    if params[:Body][/^co/i]
       item_status = false
     end
 
