@@ -12,6 +12,7 @@
   <% @employee.transactions.each do |transaction| %>
     <%= transaction.description %>
     <%= transaction.item_id %>
+    <%= transaction.assettag %>
     <%= transaction.created_at %>
     <%= transaction.status %><br />
   <% end %>
