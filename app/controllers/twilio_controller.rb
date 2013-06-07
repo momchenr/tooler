@@ -4,15 +4,25 @@ class TwilioController < ApplicationController
     @city = params[:FromCity].capitalize
     @state = params[:FromState]
       render 'process_sms.xml.erb', :content_type => 'text/xml'
-    end
-  
+  end
+
   def create
     phone_number = params[:From][/\d+/].to_s
-    employee = Employee.where(phone: phone_number.to_s).first
-    if employee
-      @transaction = Transaction.new(:item_id => params[:Body], :employee_id => employee[:id], :status => true)
-      @transaction.save
+    item_asset = params[:Body].str.split(/\s+/).last
+
+    if params[:Body][/^ci/].to_s
+      item_status = true
     end
+
+    if params[:Body][/^co/].to_s
+      item_status = false
+    end
+
+    employee = Employee.where(phone: phone_number.to_s).first
+      if employee
+        @transaction = Transaction.new(:item_id => item_asset, :employee_id => employee[:id], :status => item_status)
+        @transaction.save
+      end
   end
 
 end
