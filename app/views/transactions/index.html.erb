@@ -4,6 +4,7 @@
   <tr>
     <th>Status</th>
     <th>Item</th>
+    <th>Item Description</th>
     <th>Employee</th>
     <th></th>
     <th></th>
@@ -14,7 +15,8 @@
   <tr>
     <td><%= transaction.status %></td>
     <td><%= transaction.item_id %></td>
-    <td><%= transaction.employee_id %></td>
+    <td><%= transaction.description %></td>
+    <td><%= transaction.name %></td>
     <td><%= link_to 'Show', transaction %></td>
     <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
     <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
