@@ -8,6 +8,14 @@
   <%= @employee.name %>
 </p>
 
+<% if @employee.transactions.count != 0 %>
+  <% @employee.transactions.each do |transaction| %>
+    <%= transaction.description %>
+    <%= transaction.item_id %>
+    <%= transaction.created_at %>
+    <%= transaction.status %><br />
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
