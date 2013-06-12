@@ -1,13 +1,32 @@
-<p>
-  <b>Description:</b>
+<h1>
   <%= @item.description %>
-</p>
+</h1>
 
-<p>
-  <b>Assettag:</b>
+<h3 style="padding-left:30px">
+  <b>Asset ID:</b>
   <%= @item.assettag %>
-</p>
+</h3>
 
+<% if @item.transactions.count != 0 %>
+  <table>
+    <tr>
+      <th>Employee</th>
+      <th style="padding-left:30px">Phone Number</th>
+      <th style="padding-left:30px">Occurred</th>
+      <th style="padding-left:30px">Status</th>
+    </tr>
+    <% @item.transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.employee.name %></td>
+        <td style="padding-left:30px"><%= transaction.employee.phone %></td>
+        <td style="padding-left:30px"><%= transaction.created_at %></td>
+        <td style="padding-left:30px"><%= transaction.status %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<br>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
