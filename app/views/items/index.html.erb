@@ -11,9 +11,8 @@
 
 <% @items.each do |item| %>
   <tr>
-    <td style="padding-left:30px"><%= item.description %></td>
+    <td style="padding-left:30px"><%= link_to item.description, item %></td>
     <td style="padding-left:30px"><%= item.assettag %></td>
-    <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
