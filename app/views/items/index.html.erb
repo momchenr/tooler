@@ -1,9 +1,9 @@
-<h1>Listing items</h1>
+<h1>Item Inventory</h1>
 
 <table>
   <tr>
-    <th>Description</th>
-    <th>Assettag</th>
+    <th style="padding-left:30px">Description</th>
+    <th style="padding-left:30px">Asset ID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,8 @@
 
 <% @items.each do |item| %>
   <tr>
-    <td><%= item.description %></td>
-    <td><%= item.assettag %></td>
+    <td style="padding-left:30px"><%= item.description %></td>
+    <td style="padding-left:30px"><%= item.assettag %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Item', new_item_path %>
+<%= link_to 'Create New Item', new_item_path %>
