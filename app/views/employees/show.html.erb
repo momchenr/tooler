@@ -1,22 +1,32 @@
-<p>
+<h1><%= @employee.name %></h1>
+
+<h3 style="padding-left:20px">
   <b>Phone:</b>
   <%= @employee.phone %>
-</p>
+</h3>
 
-<p>
-  <b>Name:</b>
-  <%= @employee.name %>
-</p>
-
-<% if @employee.transactions.count != 0 %>
-  <% @employee.transactions.each do |transaction| %>
-    <%= transaction.description %>
-    <%= transaction.item_id %>
-    <%= transaction.assettag %>
-    <%= transaction.created_at %>
-    <%= transaction.status %><br />
+  <% if @employee.transactions.count != 0 %>
+    <table>
+      <tr>
+        <th>Description</th>
+        <th style="padding-left:30px">Item ID</th>
+        <th style="padding-left:30px">Asset Tag</th>
+        <th style="padding-left:30px">Created At</th>
+        <th style="padding-left:30px">Status</th>
+      </tr>
+      <% @employee.transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.description %></td>
+          <td style="padding-left:30px"><%= transaction.item_id %></td>
+          <td style="padding-left:30px"><%= transaction.assettag %></td>
+          <td style="padding-left:30px"><%= transaction.created_at %></td>
+          <td style="padding-left:30px"><%= transaction.status %></td>
+        </tr>
+      <% end %>
+    </table>
   <% end %>
-<% end %>
+
+  <br>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
