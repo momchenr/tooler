@@ -8,12 +8,24 @@
 </h3>
 
 <div class="center hero-unit">
-  <h2>This tool is currently [...] by [...] and can be reached at [...]</h2>
+  <% if @item.transactions.last %>
+    <h2>This tool is currently 
+      <% if @item.transactions.last.status == true %>
+        CHECKED-IN at
+      <% else %>
+        CHECKED-OUT at
+      <% end %>
+      <%= @item.transactions.last.created_at %>, by
+      <%= @item.transactions.last.employee.name %>, reachable at 
+      <%= @item.transactions.last.employee.phone %>.
+    </h2>
+  <% else %>
+    <h2>This item has yet to be checked out.</h2>
+  <% end %>
 </div>
 
-<h3 style="padding-left:30px">Other Check-in / Check-out records:</h3>
-
 <% if @item.transactions.count != 0 %>
+  <h3 style="padding-left:30px">Other Check-in / Check-out records:</h3>
   <table>
     <tr>
       <th style="padding-left:30px">Employee</th>
