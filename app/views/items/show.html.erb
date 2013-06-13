@@ -33,7 +33,7 @@
       <th style="padding-left:30px">Occurred</th>
       <th style="padding-left:30px">Status</th>
     </tr>
-    <% @item.transactions.each do |transaction| %>
+    <% @item.transactions.reverse_each do |transaction| %>
       <tr>
         <td style="padding-left:30px"><%= transaction.employee.name %></td>
         <td style="padding-left:30px"><%= transaction.employee.phone %></td>
