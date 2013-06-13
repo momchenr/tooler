@@ -1,6 +1,6 @@
 <div class="center hero-unit">
   <h2>On
-    <%= @transaction.created_at %>
+    <%= @transaction.created_at.strftime("%d/%m/%Y") %>
     <%= @transaction.name %>
     <% if @transaction.status == true %>
       CHECKED-IN
