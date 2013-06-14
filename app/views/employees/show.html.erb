@@ -1,11 +1,33 @@
 <h1><%= @employee.name %></h1>
-
-<h3 style="padding-left:20px">
+<h4 style="padding-left:20px">
   <b>Phone:</b>
   <%= @employee.phone %>
-</h3>
+</h4>
 
-  <% if @employee.transactions.count != 0 %>
+<br />
+
+<% if @employee.transactions.count != 0 %>
+  <h3>Currently Checked-OUT Items</h3>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th style="padding-left:30px">Asset Tag</th>
+    </tr>
+    <% @employee.transactions.each do |transaction| %>
+      <% if transaction.status == false %>
+        <tr>
+          <td><%= transaction.description %></td>
+          <td style="padding-left:30px"><%= transaction.assettag %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% end %>
+
+<br /><br />
+
+<% if @employee.transactions.count != 0 %>
+  <h3>Check-IN / Check-OUT History</h3>
     <table>
       <tr>
         <th>Description</th>
@@ -28,5 +50,5 @@
 
   <br>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Edit This Employee', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
