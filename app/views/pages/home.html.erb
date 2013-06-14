@@ -1,13 +1,8 @@
 <div class="center hero-unit">
-  <h1>Oh Hai.</h1>
-  <p>This is <%= link_to 'Tooler',  "http://tooler.com" %>
-  </p>
-
-  <p><%= link_to 'Sign up now!', new_user_registration_path, class: "btn btn-large btn-primary" %> </p>
-  <p><%= link_to 'New Employee', new_employee_path, class: "btn btn-large btn-primary" %> </p>
-  <p><%= link_to 'New Item', new_item_path, class: "btn btn-large btn-primary" %> </p>
-  <p><%= link_to 'New Transaction', new_transaction_path, class: "btn btn-large btn-primary" %></p>
-  <p><%= link_to 'View Employees', employees_path, class: "btn btn-large btn-primary" %></p>
-  <p><%= link_to 'View Items', items_path, class: "btn btn-large btn-primary" %></p>
-  <p><%= link_to 'View Transactions', transactions_path, class: "btn btn-large btn-primary" %></p>  
+  <h1>Enginuity Tool Tracker</h1>
+  
+  <% if user_signed_in? %>
+  <% else %>
+    <h3>Please Log in.</h3>
+  <% end %>
 </div>
