@@ -1,8 +1,8 @@
-<%= simple_form_for(@transaction) do |f| %>
+<%= simple_form_for(@transaction, html: { class: 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :status %>
+    <%= f.input :status %> 
     <%= f.input :item_id %>
     <%= f.input :employee_id %>
   </div>
