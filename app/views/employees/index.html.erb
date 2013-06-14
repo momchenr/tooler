@@ -1,5 +1,9 @@
 <h1>Employee Roster</h1>
 
+<br />
+<%= link_to 'Add a New Employee', new_employee_path, :class => "btn" %>
+<br /><br />
+
 <table>
   <tr>
     <th style="padding-left:30px">Name</th>
@@ -18,7 +22,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Employee', new_employee_path %>
