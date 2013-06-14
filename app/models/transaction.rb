@@ -11,6 +11,6 @@ class Transaction < ActiveRecord::Base
     order("created_at DESC").limit(1)
   end
 
-  scope :checkin, where(:status => true)
-  scope :checkout, where(:status => false)
+  scope :checkedin, where(:status => true)
+  scope :checkedout, where(:status => false)
 end
