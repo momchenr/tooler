@@ -13,7 +13,7 @@
       <th>Item ID</th>
       <th style="padding-left:30px">Asset Tag</th>
     </tr>
-    <% @employee.transactions.each do |transaction| %>
+    <% @employee.transactions.most_recent.each do |transaction| %>
       <% if transaction.status == false %>
         <tr>
           <td><%= transaction.description %></td>
