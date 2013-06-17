@@ -15,7 +15,7 @@
 
 <% @transactions.each do |transaction| %>
   <tr>
-    <td style="padding-left:30px"><%= link_to transaction.created_at.strftime("%A, %d/%m/%Y"), transaction %></td>
+    <td style="padding-left:30px"><%= link_to transaction.created_at.strftime("%A, %m/%d/%Y"), transaction %></td>
     <td style="padding-left:30px"><%= transaction.status %></td>
     <td style="padding-left:30px"><%= transaction.item_id %></td>
     <td style="padding-left:30px"><%= transaction.assettag %></td>

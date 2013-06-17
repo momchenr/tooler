@@ -15,7 +15,7 @@
       <% else %>
         CHECKED-OUT at
       <% end %>
-      <%= @item.transactions.last.created_at %>, by
+      <%= @item.transactions.last.created_at.strftime("%A, %m/%d/%Y") %>, by
       <%= @item.transactions.last.employee.name %>, reachable at 
       <%= @item.transactions.last.employee.phone %>.
     </h2>
@@ -37,7 +37,7 @@
       <tr>
         <td style="padding-left:30px"><%= transaction.employee.name %></td>
         <td style="padding-left:30px"><%= transaction.employee.phone %></td>
-        <td style="padding-left:30px"><%= transaction.created_at %></td>
+        <td style="padding-left:30px"><%= transaction.created_at.strftime("%A, %m/%d/%Y") %></td>
         <td style="padding-left:30px"><%= transaction.status %></td>
       </tr>
     <% end %>

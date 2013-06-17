@@ -13,7 +13,7 @@
       <th>Item ID</th>
       <th style="padding-left:30px">Asset Tag</th>
     </tr>
-    <% @employee.transactions.most_recent.each do |transaction| %>
+    <% @employee.transactions.each do |transaction| %>
       <% if transaction.status == false %>
         <tr>
           <td><%= transaction.description %></td>
@@ -41,7 +41,7 @@
           <td><%= transaction.description %></td>
           <td style="padding-left:30px"><%= transaction.item_id %></td>
           <td style="padding-left:30px"><%= transaction.assettag %></td>
-          <td style="padding-left:30px"><%= transaction.created_at %></td>
+          <td style="padding-left:30px"><%= transaction.created_at.strftime("%A, %m/%d/%Y") %>
           <td style="padding-left:30px"><%= transaction.status %></td>
         </tr>
       <% end %>
