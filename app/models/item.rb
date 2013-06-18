@@ -4,5 +4,5 @@ class Item < ActiveRecord::Base
   has_many :transactions
   has_many :employees, :through => :transactions
 
-  scope :last_transaction, -> { order('created_at DESC').limit(1) }
+  scope :checked_out, -> { last_transaction.checkout }
 end
