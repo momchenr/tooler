@@ -6,14 +6,14 @@
 
 <br />
 
-<% if @employee.items.checked_out %>
+<% if @employee.transactions %>
   <h3>Currently Checked-OUT Items</h3>
   <table>
     <tr>
       <th>Item ID</th>
       <th style="padding-left:30px">Asset Tag</th>
     </tr>
-    <% @employee.transactions.items.checked_out.reverse.each do |transaction| %>
+    <% @employee.transactions.first.status do |transaction| %>
       <tr>
         <td style="padding-left:30px"> 
           <%= transaction.description %>
