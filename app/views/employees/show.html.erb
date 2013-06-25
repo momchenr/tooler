@@ -33,18 +33,20 @@
     <table>
       <tr>
         <th>Description</th>
-        <th style="padding-left:30px">Item ID</th>
         <th style="padding-left:30px">Asset Tag</th>
-        <th style="padding-left:30px">Created At</th>
-        <th style="padding-left:30px">Status</th>
+        <th style="padding-left:30px">Date</th>
+        <th style="padding-left:30px">CheckIn/Checkout</th>
       </tr>
       <% @employee.transactions.reverse_each do |transaction| %>
         <tr>
           <td><%= transaction.description %></td>
-          <td style="padding-left:30px"><%= transaction.item_id %></td>
           <td style="padding-left:30px"><%= transaction.assettag %></td>
           <td style="padding-left:30px"><%= transaction.created_at.strftime("%A, %m/%d/%Y") %>
-          <td style="padding-left:30px"><%= transaction.status %></td>
+          <% if transaction.status == true %>  
+            <td style="padding-left:30px">Check In</td>
+          <% elsif transaction.status == false %>
+            <td style="padding-left:30px">Check Out</td>
+          <% end %>
         </tr>
       <% end %>
     </table>
