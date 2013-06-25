@@ -4,6 +4,12 @@ class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.all(:order => "created_at DESC")
 
+    if @transactions.class == Array
+      @transactions = Kaminari.paginate_array(@transactions).page(params[:page]).per(50)
+    else
+      @transactions = @transactions.page(params[:page]).per(10)
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }
