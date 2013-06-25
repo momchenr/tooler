@@ -30,15 +30,21 @@
     <tr>
       <th style="padding-left:30px">Employee</th>
       <th style="padding-left:30px">Phone Number</th>
-      <th style="padding-left:30px">Occurred</th>
-      <th style="padding-left:30px">Status</th>
+      <th style="padding-left:30px">Date</th>
+      <th style="padding-left:30px">CheckIN / CheckOUT</th>
     </tr>
     <% @item.transactions.reverse_each do |transaction| %>
       <tr>
         <td style="padding-left:30px"><%= transaction.employee.name %></td>
         <td style="padding-left:30px"><%= transaction.employee.phone %></td>
         <td style="padding-left:30px"><%= transaction.created_at.strftime("%A, %m/%d/%Y") %></td>
-        <td style="padding-left:30px"><%= transaction.status %></td>
+
+        <% if transaction.status == true %>
+          <td style="padding-left:30px">Check In</td> 
+        <% elsif transaction.status == false %>
+          <td style="padding-left:30px">Check Out</td> 
+        <% end %>
+
       </tr>
     <% end %>
   </table>
