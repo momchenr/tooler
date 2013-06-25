@@ -26,8 +26,6 @@
   <tr>
     <td style="padding-left:30px"><%= link_to employee.name, employee %></td>
     <td style="padding-left:30px"><%= employee.phone %></td>
-    <td style="padding-left:30px"><%= link_to 'Edit', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
