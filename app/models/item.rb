@@ -11,4 +11,12 @@ class Item < ActiveRecord::Base
   def checked_out?
     !last_transaction.status
   end
+
+  def self.search(search)
+    if search
+      where('description ILIKE ? OR assettag ILIKE ?', "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
 end

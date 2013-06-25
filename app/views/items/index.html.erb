@@ -1,5 +1,14 @@
 <h1>Item Inventory</h1>
 
+<div class="well">
+  <%= form_tag items_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+</div>
+
 <br />
 <%= link_to 'Create New Item', new_item_path, :class => "btn" %>
 <br /><br />
