@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Date</th>
-    <th style="padding-left:30px">Status</th>
+    <th>Status</th>
+    <th style="padding-left:30px">Date</th>
     <th style="padding-left:30px">Assettag</th>
     <th style="padding-left:30px">Item Description</th>
     <th style="padding-left:30px">By Employee</th>
@@ -14,14 +14,14 @@
 
 <% @transactions.each do |transaction| %>
   <tr>
-    <td style="padding-left:30px"><%= link_to transaction.created_at.strftime("%A, %m/%d/%Y"), transaction %></td>
     
     <% if transaction.status == true %>
-      <td style="padding-left:30px">Check In</td>
+      <td><%= link_to "Check In", transaction %></td>
     <% elsif transaction.status == false %>
-      <td style="padding-left:30px">Check Out</td> 
+      <td><%= link_to "Check Out", transaction %></td> 
     <% end %>
-    
+
+    <td style="padding-left:30px"><%= transaction.created_at.strftime("%A, %m/%d/%Y") %>
     <td style="padding-left:30px"><%= transaction.assettag %></td>
     <td style="padding-left:30px"><%= transaction.description %></td>
     <td style="padding-left:30px"><%= transaction.name %></td>
