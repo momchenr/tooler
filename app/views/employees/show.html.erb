@@ -55,4 +55,5 @@
   <br>
 
 <%= link_to 'Edit This Employee', edit_employee_path(@employee) %> |
+<%= link_to 'Delete This Employee', @employee, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', employees_path %>
