@@ -5,6 +5,12 @@ class EmployeesController < ApplicationController
     @employees = Employee.all
     @employees = Employee.search(params[:search])
 
+    if @employees.class == Array
+      @employees = Kaminari.paginate_array(@employees).page(params[:page]).per(50)
+    else
+      @employees = @employees.page(params[:page]).per(50)
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @employees }
