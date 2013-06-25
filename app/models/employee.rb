@@ -14,4 +14,12 @@ class Employee < ActiveRecord::Base
   def checkedout_items
     items.select(&:checked_out?)
   end
+
+  def self.search(search)
+    if search
+      where('name ILIKE ? OR phone ILIKE ?', "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
 end

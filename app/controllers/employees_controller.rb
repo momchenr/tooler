@@ -3,6 +3,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.all
+    @employees = Employee.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
