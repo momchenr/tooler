@@ -21,7 +21,12 @@ class TwilioController < ApplicationController
     employee = Employee.where(phone: phone_number.to_s).first
     item = Item.where(assettag: item_asset.to_s).first
 
-    if employee
+    if employee && item.last_transaction.checkout
+      @transaction = Transaction.new(:item_id => item[:id], :employee_id => item.last_transaction.employee[:id]. :status => true)
+      @transaction.save
+      @transaction = Transaction.new(:item_id => item[:id], :employee_id => employee[:id], :status => item_status)
+      @transaction.save
+    elsif employee && item.last_transaction.checkin
       @transaction = Transaction.new(:item_id => item[:id], :employee_id => employee[:id], :status => item_status)
       @transaction.save
     end
