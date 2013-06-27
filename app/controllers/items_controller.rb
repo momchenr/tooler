@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }
+      format.csv { send_data @items.to_csv }
+      format.xls { send_data @items.to csv(col_sep: "\t") }
     end
   end
 
