@@ -31,3 +31,6 @@
 </table>
 
 <%= paginate @employees %>
+<br /><br />
+<%= link_to "Export CSV", employees_path(format: "csv") %> |
+<%= link_to "Export XLS", employees_path(format: "xls") %><br />
