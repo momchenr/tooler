@@ -3,7 +3,9 @@ Tooler::Application.routes.draw do
   resources :transactions
 
 
-  resources :employees
+  resources :employees do
+    collection { post :import }
+  end
 
 
   resources :items

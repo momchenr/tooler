@@ -89,4 +89,9 @@ class EmployeesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def import
+    Employee.import(params[:file])
+    redirect_to root_url, notice: "Employees Imported."
+  end
 end

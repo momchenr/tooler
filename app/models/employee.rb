@@ -31,4 +31,12 @@ class Employee < ActiveRecord::Base
       end
     end
   end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      employee = find_by_id(row["id"]) || new
+      employee.attributes = row.to_hash.slice(*accessible_attributes)
+      employee.save!
+    end
+  end
 end
