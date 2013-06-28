@@ -35,4 +35,8 @@
 <%= paginate @items %>
 <br /><br />
 <%= link_to "Export CSV", items_path(format: "csv") %> |
-<%= link_to "Export XLS", items_path(format: "xls") %>
+<%= link_to "Export XLS", items_path(format: "xls") %><br />
+<%= form_tag import_items_path, multipart: true do %>
+ <%= file_field_tag :file %>
+ <%= submit_tag "Import" %>
+<% end %>

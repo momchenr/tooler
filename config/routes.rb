@@ -8,7 +8,9 @@ Tooler::Application.routes.draw do
   end
 
 
-  resources :items
+  resources :items do
+    collection { post :import }
+  end
 
   resources :twilio do
     collection do
