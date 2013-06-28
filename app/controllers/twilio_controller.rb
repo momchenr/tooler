@@ -8,7 +8,7 @@ class TwilioController < ApplicationController
 
   def create
     phone_number = params[:From][/\d{10}\z/].to_s
-    item_asset = params[:Body].split.last
+    item_asset = params[:Body].split.last.upcase
 
     if params[:Body][/^ci/i]
       item_status = true
@@ -19,7 +19,7 @@ class TwilioController < ApplicationController
     end
 
     employee = Employee.where(phone: phone_number.to_s).first
-    item = Item.where(assettag: item_asset.to_s.upcase).first
+    item = Item.where(assettag: item_asset.to_s).first
 
     if employee && !item.last_transaction.status
       # generate checkin for last employee that had it
