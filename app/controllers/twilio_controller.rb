@@ -22,8 +22,8 @@ class TwilioController < ApplicationController
     item = Item.where(assettag: item_asset.to_s).first
 
     if employee && !item.last_transaction.status
-      # generate checkin before generating checkout
-      @transaction = Transaction.new(:item_id => item[:id], :employee_id => employee[:id], :status => true)
+      # generate checkin for prior person before generating checkout
+      @transaction = Transaction.new(:item_id => item[:id], :employee_id => item.last_transaction.employee[:id], :status => true)
       @transaction.save
       # generate checkout for incoming twilio message
       @transaction = Transaction.new(:item_id => item[:id], :employee_id => employee[:id], :status => item_status)
