@@ -19,7 +19,7 @@ class TwilioController < ApplicationController
     end
 
     employee = Employee.where(phone: phone_number.to_s).first
-    item = Item.where(assettag: item_asset.to_s).first.upcase
+    item = Item.where(assettag: item_asset.to_s.upcase).first
 
     if employee && !item.last_transaction.status
       # generate checkin for last employee that had it
