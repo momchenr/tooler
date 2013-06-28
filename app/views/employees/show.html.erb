@@ -37,7 +37,7 @@
         <th style="padding-left:30px">Date</th>
         <th style="padding-left:30px">CheckIn/Checkout</th>
       </tr>
-      <% @employee.transactions.reverse_each do |transaction| %>
+      <% @employee.transactions.each do |transaction| %>
         <tr>
           <td><%= transaction.description %></td>
           <td style="padding-left:30px"><%= transaction.assettag %></td>
